@@ -1,0 +1,29 @@
+{
+  "name": "e-store",
+  "version": "1.0.0",
+  "description": "Simple example of e-store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abaksheiev/angularjs-e-store.git"
+  },
+  "keywords": [
+    "angular",
+    "karma",
+    "nodejs",
+    "express",
+    "javascript"
+  ],
+  "author": "Anton Baksheiev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abaksheiev/angularjs-e-store/issues"
+  },
+  "homepage": "https://github.com/abaksheiev/angularjs-e-store#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
