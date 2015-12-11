@@ -2,7 +2,8 @@
  angular
     .module('eStoreApp')
     .controller('PhoneListCtrl', ['$scope', function($scope) {
-       $scope.phones = [
+     $scope.name = 'PhoneListCtrl';
+     $scope.phones = [
             {'name': 'Nexus S',
              'snippet': 'Fast just got faster with Nexus S.'},
             {'name': 'Motorola XOOM™ with Wi-Fi',
