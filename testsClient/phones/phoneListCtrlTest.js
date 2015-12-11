@@ -5,3 +5,10 @@ describe("A suite", function() {
     expect(true).toBe(true);
   });
 });
+
+describe('getDiv', function() {
+    
+    it('Should exist', function() {
+        expect('DIV').toBe('DIV');
+    });
+});
