@@ -12,7 +12,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+<<<<<<< HEAD
       '/testsClient/phones/phoneListCtrlTest.js'
+=======
+      'testsClient/phones/phoneListCtrlTest.js'
+>>>>>>> bf0bcb424a6edd8e16ec15c01aa1f48016c768bd
     ],
 
 
