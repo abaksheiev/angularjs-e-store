@@ -14,10 +14,13 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
+    
     files: [
-      'testsClient/*.js',
+      'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+       'bower_components/pouchdb/dist/pouchdb.js',
       'testsClient/*/*.js'
-    ],
+    ]
 
 
     // list of files to exclude
