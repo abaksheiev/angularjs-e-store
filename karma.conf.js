@@ -1,8 +1,11 @@
+// Karma configuration
+// Generated on Fri Dec 11 2015 22:12:17 GMT+0000 (UTC)
+
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '/',
+    basePath: '',
 
 
     // frameworks to use
@@ -12,17 +15,13 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-<<<<<<< HEAD
-      '/testsClient/phones/phoneListCtrlTest.js'
-=======
-      'testsClient/phones/phoneListCtrlTest.js'
->>>>>>> bf0bcb424a6edd8e16ec15c01aa1f48016c768bd
+      'testsClient/*.js',
+      'testsClient/*/*.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-
     ],
 
 
@@ -39,7 +38,7 @@ module.exports = function(config) {
 
 
     // web server port
-    port: 8081,
+    port: 9876,
 
 
     // enable / disable colors in the output (reporters and logs)
@@ -52,16 +51,20 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-   
-    browsers: ['Firefox', 'FirefoxDeveloper', 'FirefoxAurora', 'FirefoxNightly'],
+    browsers: ['Firefox'],
+
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
-  });
-};
+    singleRun: false,
+
+    // Concurrency level
+    // how many browser should be started simultanous
+    concurrency: Infinity
+  })
+}
