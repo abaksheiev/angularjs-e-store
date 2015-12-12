@@ -1,7 +1,7 @@
 
  angular
     .module('eStoreApp')
-    .controller('PhoneListCtrl', ['$scope', function($scope) {
+    .controller('PhoneListCtrl',  ['$scope', function($scope) {
      $scope.name = 'PhoneListCtrl';
      $scope.phones = [
             {'name': 'Nexus S',
