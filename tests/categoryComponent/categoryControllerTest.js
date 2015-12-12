@@ -22,4 +22,5 @@ describe('>>>CATEGORY COMPONENT: CATALOG CONTROLLER<<<', function() {
     it('should have a property called name equal "'+ controllerName +'"', function () {
         expect(categoryControllerInstance.name).toEqual(controllerName);
     });
+
 });

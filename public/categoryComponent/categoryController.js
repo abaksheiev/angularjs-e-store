@@ -7,19 +7,21 @@
         .module('eStoreApp')
         .controller('categoryController', categoryController);
 
-   // categoryController.$inject=['categoryService']
+    categoryController.$inject=['$log', 'categoryService']
 
-    function categoryController(){
+    function categoryController($log, categoryService){
         var vm = this;
-        vm.name = 'categoryController'
-        /*
+        angular.extend(this, {
+            name : 'categoryController',
+            templateUrl: 'public/categoryComponent/views/categoryList.html'
+        });
+
         categoryService
             .getAll()
-            .then(function(data){
-                vm.categoryList = data;
-
+            .then(function(request){
+                $log.log(request.data);
+                vm.categoryList = request.data;
+                vm.categoryList[0].active = true;
             })
-*/
-        vm.category =['The first', 'the second']
     }
 })()

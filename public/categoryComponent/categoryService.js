@@ -17,7 +17,7 @@
         }
 
         function getAll(){
-            return $http.get('../mockData/categories.json')
+            return $http.get('api/mockData/categories.json')
         }
     }
 })()

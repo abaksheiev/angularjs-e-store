@@ -11,6 +11,16 @@
 
     function productController() {
         var vm = this;
+        angular.extend(this, {
+            name : 'categoryController',
+            tmpls:{
+                productDetails:'public/productComponent/views/productDetails.html',
+                productRating:'public/productComponent/views/productRating.html'
+            }
+        });
+
+
+        var vm = this;
         vm.name = 'productController'
         /*
          categoryService
