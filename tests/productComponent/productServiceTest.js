@@ -22,19 +22,23 @@ describe('>>>PRODUCT COMPONENT: PRODUCT SERVICE<<<', function (){
     describe('should have defined CRUD operation', function () {
         it('should have defined function "getAll"', function() {
             expect(factoryInstance.getAll).toBeDefined();
+            expect(factoryInstance.getAll).toEqual(jasmine.any(Function));
         });
 
         it('should have defined function "getById"', function() {
             expect(factoryInstance.getById).toBeDefined();
+            expect(factoryInstance.getById).toEqual(jasmine.any(Function));
         });
 
 
         it('should have defined function "deleteById"', function() {
             expect(factoryInstance.deleteById).toBeDefined();
+            expect(factoryInstance.deleteById).toEqual(jasmine.any(Function));
         });
 
         it('should have defined function "save"', function() {
             expect(factoryInstance.save).toBeDefined();
+            expect(factoryInstance.save).toEqual(jasmine.any(Function));
         });
     })
 });
