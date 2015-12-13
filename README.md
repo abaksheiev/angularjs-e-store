@@ -2,8 +2,8 @@
 Angualrjs,Unit tests: Karma.
 
 <ul>
-<li><span style="padding-right:100px">DEMO:</span>http://abaksheiev.github.io/angularjs-e-store/index.html</li>
-<li><span style="padding-right:100px">Jasmin Test:</span> http://abaksheiev.github.io/angularjs-e-store/tests/SpecRunner.html</li>
-<li><span style="padding-right:100px">Travic CI:</span>   https://travis-ci.org/abaksheiev/angularjs-e-store</li>
+<li>DEMO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://estore-abaksheiev.rhcloud.com/index.html</li>
+<li>Jasmin Test:&nbsp;&nbsp;http://estore-abaksheiev.rhcloud.com/SpecRunner.html</li>
+<li>Travic CI:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://travis-ci.org/abaksheiev/angularjs-e-store</li>
 </ul>
 
