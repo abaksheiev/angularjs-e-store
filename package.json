@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Simple example of e-store: API",
   "scripts": {
-    "start": "supervisor server.js"
+    "start": "node server.js"
   },
-  "main": "server.js",
+  "main": "/server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abaksheiev/angularjs-e-store.git"
