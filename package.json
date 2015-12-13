@@ -2,10 +2,10 @@
   "name": "e-store-API",
   "version": "1.0.0",
   "description": "Simple example of e-store: API",
-  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "supervisor server.js"
   },
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abaksheiev/angularjs-e-store.git"
