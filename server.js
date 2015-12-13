@@ -13,8 +13,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;        // set our port
-
 // ROUTES FOR OUR API
 // =============================================================================
 
@@ -58,5 +56,13 @@ app.use('/index.html', express.static(__dirname + '/public/index.html'));
 app.use('/api', router);
 // START THE SERVER
 // =============================================================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
+
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+
+server.listen(server_port, server_ip_address, function(){
+  console.log("Listening on " + server_ip_address + ", server_port " + server_port)
+});
+
+app.listen(server_port);
+console.log('Magic happens on port ' + server_port);
