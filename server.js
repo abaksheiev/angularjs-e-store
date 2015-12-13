@@ -13,8 +13,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;        // set our port
-
 // ROUTES FOR OUR API
 // =============================================================================
 
@@ -48,15 +46,20 @@ router.route('/categories/getAll')
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 
-app.use(express.static(__dirname + '/angularjs-e-store/index.html'));
-
 app.use('/public',express.static(__dirname + '/public'));
+
 app.use('/bower_components',express.static(__dirname + '/bower_components'));
+app.use('/content',express.static(__dirname + '/content'));
+
+app.use('/SpecRunner.html',express.static(__dirname + '/tests/SpecRunner.html'));
+app.use('/tests',express.static(__dirname + '/tests'));
 
 app.use('/index.html', express.static(__dirname + '/public/index.html'));
+app.use('/info.html', express.static(__dirname + '/public/info.html'));
 
 app.use('/api', router);
 // START THE SERVER
 // =============================================================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
+app.listen('8081', function() {
+    console.log('Magic happens on port 8080 ');
+});
