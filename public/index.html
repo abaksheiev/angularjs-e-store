@@ -25,11 +25,14 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <script src="bower_components/angular/angular.min.js"></script>
-
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
   <!-- Modules -->
   <script type="text/javascript" src="public/app.js"></script>
   <!-- Category component-->
+  <script type="text/javascript" src="public/home/homeController.js"></script>
+
+    <!-- Category component-->
   <script type="text/javascript" src="public/categoryComponent/categoryController.js"></script>
   <script type="text/javascript" src="public/categoryComponent/categoryService.js"></script>
   <!-- Product component-->
@@ -60,27 +63,12 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container">
-
-  <div class="row">
-
-    <div class="col-md-3" ng-controller="categoryController as vm">
-      <div ng-include="vm.templateUrl"></div>
-    </div>
-
-    <div class="col-md-9" ng-controller="productController as vm">
-      <div ng-include="vm.tmpls.productDetails"></div>
-      <div ng-include="vm.tmpls.productRating"></div>
-    </div>
-
-  </div>
-
-</div>
+<div ng-view></div>
 <!-- /.container -->
 
 <div class="container">
 
-  <hr>
+<hr>
 
   <!-- Footer -->
   <footer>

@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <b>welcome: {{vm.firstName}} {{vm.lastName}}</b>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-3" ng-controller="categoryController as vm">
+            <div ng-include="vm.templateUrl"></div>
+        </div>
+
+        <div class="col-md-9" ng-controller="productController as vm">
+            <div ng-include="vm.tmpls.productDetails"></div>
+            <div ng-include="vm.tmpls.productRating"></div>
+        </div>
+
+    </div>
+
+</div>
