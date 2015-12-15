@@ -3,7 +3,7 @@ before_script:
   - bower install -f
 language: node_js
 node_js: 
-    - "0.11.14"
+    - "0.12.9"
 script: node_modules/karma/bin/karma start ./tests/karma.conf.js --single-run
 before_install:
     - export DISPLAY=:99.0
