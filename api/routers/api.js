@@ -3,11 +3,13 @@
  * linkedin: https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53 *
  *********************************************************************/
 // Controllers
-//var categoryController = require('../controllers/categoryController.js');
 
-//var contactController = require('../controllers/contactController.js');
 var express = require('express');
 
+// MOCK
+var authCtrl={
+    isAuthenticated:true
+}
 // Define router
 var router = express.Router();
 
@@ -20,6 +22,7 @@ var router = express.Router();
     });
 
     // CATEGORY ROUTES --------------------------------
+     var categoryController = require('../controllers/categoryController.js');
      router
         .get('/categories/getAll',function(req, res) {
             res.json([{"title" :"CAR","id" :1},{"title" :"AUTO","id" :2},{"title" :"MOTOT","id" :3}]);
@@ -27,6 +30,8 @@ var router = express.Router();
 
 
     // CONTACT ROUTES --------------------------------
+     var contactController = require('../controllers/contactController.js');
+
     router
         .get('/contact',function(req, res) {
             res.send('get contact');
@@ -40,5 +45,12 @@ var router = express.Router();
         .delete('/contact',function(req, res) {
             res.send('delete contact');
         });
+
+    // PRODUCT ROUTES --------------------------------
+    var productCtrl = require('../controllers/productController.js');
+
+    router
+        .route('/products/:product_id')
+        .get( productCtrl.getById);
 
     module.exports = router;

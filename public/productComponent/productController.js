@@ -2,34 +2,28 @@
  * Created by Anton Baksheiev on 12.12.2015.                         *
  * linkedin: https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53 *
  *********************************************************************/
-(function(){
+(function () {
     angular
         .module('eStoreApp')
         .controller('productController', productController);
 
-    // categoryController.$inject=['categoryService']
+    productController.$inject = ['productService']
 
-    function productController() {
+    function productController(productService) {
         var vm = this;
         angular.extend(this, {
-            name : 'categoryController',
-            tmpls:{
-                productDetails:'public/productComponent/views/productDetails.html',
-                productRating:'public/productComponent/views/productRating.html'
-            }
+            name: 'productController',
+            tmpls: {
+                productDetails: 'public/productComponent/views/productDetails.html',
+                productRating: 'public/productComponent/views/productRating.html'
+            },
+            loadAuctionProduct: loadAuctionProduct
         });
 
-
-        var vm = this;
-        vm.name = 'productController'
-        /*
-         categoryService
-         .getAll()
-         .then(function(data){
-         vm.categoryList = data;
-
-         })
-         */
-        vm.product = ['The first', 'the second']
+        function loadAuctionProduct() {
+            productService.getAuctionProduct().then(function (data) {
+                vm.auctionProduct = data
+            });
+        }
     }
 })()
