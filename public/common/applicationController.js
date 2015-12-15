@@ -6,9 +6,10 @@
     angular
         .module('eStoreApp')
         .controller('applicationController', applicationController);
-    applicationController.$inject = ['$scope', 'USER_ROLES', 'authService'];
+    applicationController.$inject = ['$scope', 'USER_ROLES','session', 'authService'];
     function applicationController($scope,
                                    USER_ROLES,
+                                   session,
                                    authService) {
         $scope.currentUser = null;
         $scope.userRoles = USER_ROLES;
@@ -17,5 +18,13 @@
         $scope.setCurrentUser = function (user) {
             $scope.currentUser = user;
         };
+
+        if(session.isAuthorized){
+            $scope.setCurrentUser({
+                id:session.userId,
+                role:session.userRole,
+                displayName:session.displayName
+            })
+        }
     };
 })()

@@ -11,4 +11,4 @@
             editor: 'editor',
             guest: 'guest'
         })
-});
+})();

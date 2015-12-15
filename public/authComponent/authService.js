@@ -15,14 +15,14 @@
             return $http
                 .post('/login', credentials)
                 .then(function (res) {
-                    Session.create(res.data.id, res.data.user.id,
+                    session.create(res.data.id, res.data.user.id,
                         res.data.user.role);
                     return res.data.user;
                 });
         };
 
         authService.isAuthenticated = function () {
-            return !!Session.userId;
+            return !!session.userId;
         };
 
         authService.isAuthorized = function (authorizedRoles) {
@@ -30,7 +30,18 @@
                 authorizedRoles = [authorizedRoles];
             }
             return (authService.isAuthenticated() &&
-            authorizedRoles.indexOf(Session.userRole) !== -1);
+            authorizedRoles.indexOf(session.userRole) !== -1);
+        };
+
+        authService.profile = function () {
+            return $http
+                .get('api/profile')
+                .then(function (res) {
+                    session.create(res.data.user.id, res.data.user.id,
+                        res.data.user.role, res.data.user.firstName + ' ' + res.data.user.lastName);
+                    return res.data.user;
+                });
+
         };
 
         return authService;

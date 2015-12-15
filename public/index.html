@@ -27,6 +27,7 @@
 
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <!-- Modules -->
     <script type="text/javascript" src="public/app.js"></script>
 
@@ -36,10 +37,10 @@
     <script type="text/javascript" src="public/authComponent/loginController.js"></script>
 
     <!-- Common -->
-    <script type="text/javascript" src="common/applicationController.js"></script>
-    <script type="text/javascript" src="common/session.js"></script>
-    <script type="text/javascript" src="common/AUTH_EVENTS.js"></script>
-    <script type="text/javascript" src="common/USER_ROLES.js"></script>
+    <script type="text/javascript" src="public/common/applicationController.js"></script>
+    <script type="text/javascript" src="public/common/session.js"></script>
+    <script type="text/javascript" src="public/common/AUTH_EVENTS.js"></script>
+    <script type="text/javascript" src="public/common/USER_ROLES.js"></script>
 
     <!-- Category component-->
     <script type="text/javascript" src="public/home/homeController.js"></script>
@@ -78,7 +79,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-5">
-            <b>welcome: {{appCtrl.firstName}} {{appCtrl.lastName}}</b>
+            <b>welcome: {{appCtrl.displayName}}</b>
         </div>
     </div>
 </div>

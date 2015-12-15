@@ -5,16 +5,18 @@
 (function () {
     angular
         .module('eStoreApp')
-        .service('Session', function () {
-            this.create = function (sessionId, userId, userRole) {
+        .service('session', function () {
+            this.create = function (sessionId, userId, userRole,dysplayName) {
                 this.id = sessionId;
                 this.userId = userId;
                 this.userRole = userRole;
+                this.dysplayName=dysplayName;
             };
             this.destroy = function () {
                 this.id = null;
                 this.userId = null;
                 this.userRole = null;
+                this.dysplayName=null;
             };
         })
 })()
