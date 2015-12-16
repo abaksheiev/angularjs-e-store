@@ -15,7 +15,7 @@
             getById: GetById,
             create: Create,
             update: Update,
-            delete: Delete
+            deleteById: Delete
         };
 
         // private functions

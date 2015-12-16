@@ -7,20 +7,25 @@
         .module('eStoreApp')
         .controller('categoryController', categoryController);
 
-    categoryController.$inject = ['$log', 'categoryService']
+    categoryController.$inject = [ 'categoryService']
 
-    function categoryController($log, categoryService) {
+    function categoryController( categoryService) {
         var vm = this;
         angular.extend(this, {
             name: 'categoryController',
-            templateUrl: 'public/categoryComponent/views/categoryList.html'
+            templateUrl: 'public/categoryComponent/views/categoryList.html',
+            loadCategories:function(){loadCategories(vm)}
         });
 
-        categoryService
-            .getAll()
-            .then(function (data) {
-                vm.categoryList = data;
-                vm.categoryList[0].active = true;
-            })
+        function loadCategories(vm){
+            categoryService
+                .getAll()
+                .then(function (data) {
+                    vm.categoryList = data;
+                    vm.categoryList[0].active = true;
+                })
+        }
     }
+
+
 })()

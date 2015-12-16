@@ -6,13 +6,28 @@
 
 describe('>>>CATEGORY COMPONENT: CATALOG CONTROLLER<<<', function() {
 
-    var categoryControllerInstance,
+    var scope,
+        categoryControllerInstance,
+        categoryServiceMock,
         controllerName = 'categoryController';
 
-    beforeEach(module('eStoreApp'));
+    beforeEach(function(){
+         module('eStoreApp');
+    });
 
-    beforeEach(inject(function ($controller) {
-       categoryControllerInstance = $controller(controllerName, {});
+
+    beforeEach(function(){
+        categoryServiceMock={
+            getAll:function(){}
+        }
+    });
+
+    beforeEach(inject(function ($rootScope, $controller) {
+        scope = $rootScope.$new();
+
+        categoryControllerInstance = $controller(controllerName, {
+            categoryService:categoryServiceMock
+        });
     }));
 
     it('should have been defined', function () {
@@ -22,5 +37,10 @@ describe('>>>CATEGORY COMPONENT: CATALOG CONTROLLER<<<', function() {
     it('should have a property called name equal "'+ controllerName +'"', function () {
         expect(categoryControllerInstance.name).toEqual(controllerName);
     });
+
+    if('should be call getAll from on loadCategories', function(){
+            scope.loadCategories();
+            spyOn(categoryServiceMock, 'getAll').andCallThrough();
+        });
 
 });

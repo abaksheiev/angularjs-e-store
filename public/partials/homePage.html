@@ -8,7 +8,7 @@
     </div>
     <div class="row">
 
-        <div class="col-md-3" ng-controller="categoryController as vm">
+        <div class="col-md-3" ng-init="vm.loadCategories()" ng-controller="categoryController as vm">
             <div ng-include="vm.templateUrl"></div>
         </div>
 
