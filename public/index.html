@@ -35,6 +35,8 @@
     <script type="text/javascript" src="public/authComponent/authService.js"></script>
     <script type="text/javascript" src="public/authComponent/authResolver.js"></script>
     <script type="text/javascript" src="public/authComponent/loginController.js"></script>
+    <script type="text/javascript" src="public/authComponent/registrationController.js"></script>
+
 
     <!-- Common -->
     <script type="text/javascript" src="public/common/applicationController.js"></script>
@@ -77,11 +79,7 @@
 </nav>
 <!-- welcome -->
 <div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            <b>welcome: {{appCtrl.displayName}}</b>
-        </div>
-    </div>
+    <div ng-include="public/common/welcome.html"></div>
 </div>
 <!-- /.welcome -->
 <!-- Page Content -->

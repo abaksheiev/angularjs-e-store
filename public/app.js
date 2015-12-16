@@ -2,6 +2,16 @@ angular.module('eStoreApp', ['ngRoute'])
     .config(['$routeProvider', 'USER_ROLES',
         function ($routeProvider, USER_ROLES) {
             $routeProvider.
+            when('/login',{
+                templateUrl: 'public/partials/loginForm.html',
+                controller: 'loginController',
+                controllerAs: 'hm'
+            }).
+            when('/registration',{
+                templateUrl: 'public/partials/registrationForm.html',
+                controller: 'registrationController',
+                controllerAs: 'hm'
+            }).
             when('/index.html', {
                 templateUrl: 'public/partials/homePage.html',
                 controller: 'homeController',
@@ -26,19 +36,12 @@ angular.module('eStoreApp', ['ngRoute'])
 
             $rootScope.$on('$locationChangeStart', function (event, next) {
                 if (!authService.isAuthenticated()) {
-                    event.defaultPrevented = true;
-                    //If login data not available, make sure we request for it
-                    authService
-                        .profile().then(function () {
-                        $location.path(' ');
-                        event.defaultPrevented = false;
-                        $rootScope.$on('$routeChangeStart', routeChangeStart)
-                        $location.path('/');
-
-                    })
+                     //If login data not available, make sure we request for it
+                    authService.profile();
                 }
             });
 
+            $rootScope.$on('$routeChangeStart', routeChangeStart)
 
             function routeChangeStart(event, next) {
                 var authorizedRoles = next.data.authorizedRoles;
