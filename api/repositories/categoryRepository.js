@@ -2,15 +2,27 @@
  * Created by Anton Baksheiev on 14.12.2015.                         *
  * linkedin: https://www.linkedin.com/pub/baksheiev-anton/20/a56/b53 *
  *********************************************************************/
+var mongoose = require('mongoose');
+
+var db = mongoose.connection;
+/*
+db.on('error', console.error);
+db.once('open', function() {
+    // Create your schemas and models here.
+});*/
+
+mongoose.connect('mongodb://localhost/estore');
+
 
 // if our user.js file is at app/models/user.js
-var Category = require('./api/models/categoryModel.js');
+var Category = require('/_github/angularjs-e-store/api/models/categoryModel');
 
-// create a new user called category
-var category = new Category( );
+exports.save = function(categoryItem){
 
- category.save(function(err) {
-    if (err) throw err;
-
-    console.log('User saved successfully!');
-});
+    categoryItem.save(function (err, item) {
+        if (err)
+            console.log(err);
+        else
+            console.log(item);
+    });
+}

@@ -26,6 +26,9 @@ var categoryController = require('../controllers/categoryController.js');
 router
     .get('/categories/getAll', function (req, res) {
         res.json([{"title": "CAR", "id": 1}, {"title": "AUTO", "id": 2}, {"title": "MOTOT", "id": 3}]);
+    })
+    .post('/category/', function(req, res,next){
+        categoryController.save(req, res, next);
     });
 
 
