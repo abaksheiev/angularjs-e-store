@@ -15,6 +15,7 @@
             getById: GetById,
             create: Create,
             update: Update,
+            save:null,
             deleteById: Delete
         };
 

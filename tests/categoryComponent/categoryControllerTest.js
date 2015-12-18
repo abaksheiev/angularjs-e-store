@@ -38,9 +38,10 @@ describe('>>>CATEGORY COMPONENT: CATALOG CONTROLLER<<<', function() {
         expect(categoryControllerInstance.name).toEqual(controllerName);
     });
 
-    if('should be call getAll from on loadCategories', function(){
-            scope.loadCategories();
+    it('should be call getAll from on loadCategories', function(){
+        categoryControllerInstance.loadCategories();
             spyOn(categoryServiceMock, 'getAll').andCallThrough();
+
         });
 
 });
