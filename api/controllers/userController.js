@@ -6,19 +6,21 @@ var userRepository = require('/_github/angularjs-e-store/api/repositories/userRe
 
 
 module.exports.getAll = getAll;
+module.exports.get = _get;
+module.exports.post = _post;
+module.exports.put = _put;
+module.exports.delete = _delete;
 
 function getAll(req, res) {
 
-    var result = userRepository.getAll();
-
-    if (result.status == 1) {
-        res.send(result.err)
-    } else {
-        res.json(result.message);
-    }
+    userRepository
+        .getAll(function (err) {
+            return res.send(err)
+        }, function (data) {
+            return res.json(data);
+        });
 }
 
-module.exports.get = _get;
 function _get(req, res) {
     var userId = req.params.user_id
     var result = userRepository.get(userId);
@@ -30,7 +32,6 @@ function _get(req, res) {
     }
 }
 
-module.exports.post = _post
 function _post(req, res) {
     // combine new user item
     var user = {
@@ -40,18 +41,16 @@ function _post(req, res) {
 
     //todo: validation
 
-    var result = userRepository.post(user);
-
-    if (result.status == 1) {
-        res.send(result.err)
-    } else {
-        res.json(result.message);
-    }
+    userRepository.post(user,
+        function (err) {
+            return res.send(err)
+        }, function (data) {
+            return res.json(data);
+        });
 }
 
-module.exports.put = _put
+
 function _put(req, res) {
-    // combine new user item
     var user = {
         firstName: req.body.firstName,
         lastName: req.body.lastName
@@ -59,28 +58,23 @@ function _put(req, res) {
 
     //todo: validation
 
-    userRepository
-        .put(user)
-        .then(function (result) {
-
-            if (result.status == 1) {
-                res.send(result.err)
-            } else {
-                res.json(result.message);
-            }
+    userRepository.put(
+        user,
+        function (err) {
+            return res.send(err)
+        }, function (data) {
+            return res.json(data);
         });
-
 }
 
-module.exports.delete = _delete;
 function _delete(req, res) {
     var userId = req.params.user_id;
 
-    var result = userRepository.delete(userId);
-
-    if (result.status == 1) {
-        res.send(result.err)
-    } else {
-        res.json(result.message);
-    }
+    userRepository.delete(
+        userId,
+        function (err) {
+            return res.send(err)
+        }, function (data) {
+            return res.json(data);
+        });
 }

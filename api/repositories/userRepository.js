@@ -4,20 +4,15 @@
  *********************************************************************/
 var User = require('/_github/angularjs-e-store/api/models/userModel');
 
-module.exports.getAll = function () {
-    //
-// create a new user called category
-    var user = new User();
+module.exports.getAll = function (ok, error) {
 
-    User.find(function (err, items) {
-        if (err) {
-            return exports.error(err);
+    User.find(function (_error, _data) {
+        if (_error) {
+            error(_error);
+        } else {
+            ok(_data);
         }
-
-        return exports.data(items)
     });
-    console.log('[getAll] user saved successfully!');
-
 }
 
 module.exports.get = function (userId) {
@@ -35,68 +30,60 @@ module.exports.get = function (userId) {
     console.log('[get] user saved successfully!');
 };
 
-module.exports.put = function (user) {
-// create a new user called category
-    var user = new User();
+module.exports.put = function (user, ok, failed) {
+    // create a new user called category
+    var user = new User(user);
 
-    user.firstName = user.name;  // set the bears name (comes from the request)
-    user.lastName = user.lastName;
-
-
-    var promise = user.save();
-
-    promise.then(function (model) {
-        if (model.errors) {
-            return exports.error(model);
+    user.save(function (_error, _data) {
+        if (_error) {
+            return failed(_error);
+        } else {
+            ok(_data);
         }
-        ;
-
-        return exports.ok(model,"user was created")
-
     });
-
-    return promise;
 };
 
-module.exports.post = function (err) {
-// create a new user called category
-    var user = new User();
+module.exports.post = function (user, ok, faile) {
+    // get byId. override all properties
+    // create a new user called category
+    var user = new User(user);
 
-
-    console.log('[post] user saved successfully!');
-};
-
-module.exports.delete = function (itemId) {
-// create a new user called category
-    var user = new User();
-
-    user.remove({
-        _id: itemId
-    }, function (err, bear) {
-        if (err) {
-            return exports.error(err);
+    user.save(function (_error, _data) {
+        if (_error) {
+            return failed(_error);
+        } else {
+            ok(_data);
         }
-        ;
-
-        return this.ok("user was created")
     });
-
-    console.log('[delete] user saved successfully!');
 };
 
-module.exports.error = function (model) {
+module.exports.delete = function (itemId, ok, failed) {
+// create a new user called category
+    var user = new User();
+
+    User.find({
+            _id: itemId
+        })
+        .remove(function (_error, _data) {
+            if (_error) {
+                return failed(_error);
+            } else {
+                return ok(_data)
+            }
+        });
+};
+
+module.exports.error = function (model, msg) {
     model.status = 1
-
+    model.message = msg;
 }
 
-module.exports.ok = function (model,msg) {
+module.exports.ok = function (model, msg) {
     model.status = 0;
-model.message = msg
+    model.message = msg
 }
 
-module.exports.data = function (data) {
-    return {
-        status: 0,
-        data: data
-    }
+module.exports.data = function (model) {
+    model.status = 0;
+    model.data = data
 }
