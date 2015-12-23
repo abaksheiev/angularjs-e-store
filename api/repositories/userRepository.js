@@ -57,10 +57,20 @@ module.exports.post = function (user, ok, faile) {
     });
 };
 
-module.exports.delete = function (itemId, ok, failed) {
-// create a new user called category
-    var user = new User();
+module.exports.getById = function (itemId, ok, faile) {
 
+    User.find({
+        _id: itemId
+    }, function (_error, _data) {
+        if (_error) {
+            return failed(_error);
+        } else {
+            ok(_data);
+        }
+    });
+};
+
+module.exports.delete = function (itemId, ok, failed) {
     User.find({
             _id: itemId
         })

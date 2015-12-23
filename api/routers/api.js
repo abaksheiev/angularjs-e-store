@@ -62,7 +62,7 @@ module.exports.registerRouters = function (router) {
 
     router
         .get('/users/all', userCtrl.getAll)
-        .get('/users/:user_id', userCtrl.get)
+        .get('/users/:user_id', userCtrl.getById)
 
         .post('/users/', userCtrl.post)
 

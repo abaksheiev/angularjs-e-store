@@ -6,7 +6,7 @@ var userRepository = require('/_github/angularjs-e-store/api/repositories/userRe
 
 
 module.exports.getAll = getAll;
-module.exports.get = _get;
+module.exports.getById = _getById;
 module.exports.post = _post;
 module.exports.put = _put;
 module.exports.delete = _delete;
@@ -21,15 +21,15 @@ function getAll(req, res) {
         });
 }
 
-function _get(req, res) {
+function _getById(req, res) {
     var userId = req.params.user_id
-    var result = userRepository.get(userId);
-
-    if (result.status == 1) {
-        res.send(result.err)
-    } else {
-        res.json(result.message);
-    }
+    userRepository
+        .getById(userId,
+            function (err) {
+                return res.send(err)
+            }, function (data) {
+                return res.json(data);
+            });
 }
 
 function _post(req, res) {

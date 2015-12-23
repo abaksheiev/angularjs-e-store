@@ -52,6 +52,9 @@ app.use('/tests', express.static(__dirname + '/tests'));
 app.use('/index.html', express.static(__dirname + '/public/index.html'));
 app.use('/info.html', express.static(__dirname + '/public/info.html'));
 
+app.use('/admin/index.html', express.static(__dirname + '/public/admin/index.html'));
+app.use('/admin/#:route', express.static(__dirname + '/public/admin/index.html'));
+
 // all development only
 //'development' == app.get(env)
   if(true){
@@ -62,6 +65,6 @@ app.use('/info.html', express.static(__dirname + '/public/info.html'));
 
 // START THE SERVER
 // =============================================================================
-app.listen('8081', function () {
+app.listen('8082', function () {
     console.log('Magic happens on port 8080');
 });
