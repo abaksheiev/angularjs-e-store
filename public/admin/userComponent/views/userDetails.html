@@ -1,8 +1,8 @@
 <div ng-init="vm.loadDetails()" class="container">
     <h1>User detail</h1>
 
-    <form novalidate="novalidate" class="form-horizontal">
-        <div class="form-group">
+    <form class="form-horizontal" name="userForm" ng-submit="vm.saveUser(userForm.$valid)">
+        <div class="form-group" >
             <label for="inputFirstName">First name:</label>
             <input type="text" class="form-control" id="inputFirstName" ng-model="vm.user.firstName">
         </div>
@@ -12,16 +12,25 @@
             <input type="text" class="form-control" id="inputLastName" ng-model="vm.user.lastName">
         </div>
 
+        <div class="form-group" ng-class="{ 'has-error' : userForm.userName.$invalid && !vm.user.userName.$pristine }">
+            <label for="inputUserName">Username:</label>
+            <input type="text" class="form-control" id="inputUserName" name="userName" ng-model="vm.user.userName"
+                  ng-minlength="3" ng-maxlength="8"  >
+            <p ng-show="userForm.userName.$error.minlength && !userForm.userName.$pristine " class="help-block">Username is too short.</p>
+            <p ng-show="userForm.userName.$error.maxlength && !userForm.userName.$pristine " class="help-block">Username is too long.</p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <label for="inputEmail">Email:</label>
+            <input type="email" class="form-control" id="inputEmail" name = "email" ng-model="vm.user.email" ng-minlength="3" >
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine " class="help-block">Enter a valid email.</p>
+        </div>
+
         <div class="form-group">
             <div class="controls">
-                <!-- user-detail.html: -->
                 <a ng-click="vm.goToUserGrid()" class="btn btn-small">cancel</a>
-                <a ng-click="vm.saveUser()" class="btn btn-small btn-primary">update user</a>
-
-                <!-- user-creation.html: -->
-                <a ng-click="vm.createNewUser()" class="btn btn-small btn-primary">create new user</a>
+                <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
             </div>
-
         </div>
     </form>
 </div>

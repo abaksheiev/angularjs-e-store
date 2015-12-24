@@ -12,7 +12,7 @@
     function userController($routeParams, $location, userService) {
         var vm = this;
         vm.user = {
-            _id:undefined,
+            _id: undefined,
             firstName: undefined,
             lastName: undefined
         };

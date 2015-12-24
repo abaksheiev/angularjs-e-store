@@ -1,24 +1,32 @@
-<div>
+<div class="panel panel-default">
+    <div class="panel-heading">Users</div>
     <table ng-init="vm.loadUsers()" class="table table-striped">
         <thead>
         <tr>
-            <th>#</th>
+            <th style="width:50px">#</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Username</th>
-            <th></th>
-            <th></th>
+            <th style="width:50px"></th>
+            <th style="width:50px"></th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="user in vm.userList">
-            <th scope="row"><a href="#/users/{{user._id}}">{{user._id}}</a></th>
+            <th scope="row">
+                <a href="#/users/{{user._id}}">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+            </th>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.userName}}</td>
 
-            <td><a ng-click="vm.goToUserDetails(user._id)" class="btn btn-small btn-primary">edit</a></td>
-            <td><a ng-click="vm.deleteUser(user._id)" class="btn btn-small btn-danger">delete</a></td>
+            <td>
+                <a ng-click="vm.deleteUser(user._id)" >
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
