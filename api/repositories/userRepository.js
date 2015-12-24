@@ -31,14 +31,16 @@ module.exports.get = function (userId) {
 };
 
 module.exports.put = function (user, ok, failed) {
-    // create a new user called category
-    var user = new User(user);
 
-    user.save(function (_error, _data) {
+    User.findOne({_id: user._id}, function (_error, item) {
         if (_error) {
             return failed(_error);
         } else {
-            ok(_data);
+            item.firstName = user.firstName;
+            item.lastName = user.lastName;
+            item.save();
+
+            ok(item);
         }
     });
 };
@@ -57,7 +59,7 @@ module.exports.post = function (user, ok, faile) {
     });
 };
 
-module.exports.getById = function (itemId, ok, faile) {
+module.exports.getById = function (itemId, ok, failed) {
 
     User.find({
         _id: itemId

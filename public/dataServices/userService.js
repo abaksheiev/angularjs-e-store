@@ -13,7 +13,7 @@
         return {
             getAll: getAll,
             getById: getById,
-            deleteById: deleteById,
+            delete: deleteById,
             save: save
         }
 
@@ -26,19 +26,27 @@
         function getById(itemId) {
             return $http
                 .get('/api/v1/users/' + itemId)
-                .then(handleSuccess, handleError('Auction product is not available'))
+                .then(handleSuccess, handleError('Error User is available'))
         }
 
-        function getAuctionProduct() {
-            return $http.get('/api/products/1')
-                .then(handleSuccess, handleError('Auction product is not available'))
+
+        function deleteById(itemId) {
+            return $http
+                .delete('/api/v1/users/' + itemId)
+                .then(handleSuccess, handleError('Error: delete user'))
         }
 
-        function deleteById() {
+        function save(user) {
+            if (user._id) {
+                return $http
+                    .put('/api/v1/users/', user)
+                    .then(handleSuccess, handleError('Error: Update user'))
 
-        }
-
-        function save() {
+            } else {
+                return $http
+                    .post('/api/v1/users/', user)
+                    .then(handleSuccess, handleError('Error: create user'))
+            }
 
         }
 
@@ -51,6 +59,5 @@
                 return {success: false, message: error};
             };
         }
-
     }
 })()

@@ -35,6 +35,7 @@ function _getById(req, res) {
 function _post(req, res) {
     // combine new user item
     var user = {
+        _id: req.body._id,
         firstName: req.body.firstName,
         lastName: req.body.lastName
     }
@@ -52,6 +53,7 @@ function _post(req, res) {
 
 function _put(req, res) {
     var user = {
+        _id: req.body._id,
         firstName: req.body.firstName,
         lastName: req.body.lastName
     }
