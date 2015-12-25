@@ -6,24 +6,29 @@
     angular
         .module('eStoreApp')
         .controller('applicationController', applicationController);
-    applicationController.$inject = ['$scope', 'USER_ROLES','session', 'authService'];
+    applicationController.$inject = ['$scope', 'USER_ROLES', 'session', 'authService'];
     function applicationController($scope,
                                    USER_ROLES,
                                    session,
                                    authService) {
-        $scope.currentUser = null;
-        $scope.userRoles = USER_ROLES;
-        $scope.isAuthorized = authService.isAuthorized;
+        var vm = this;
+        angular.extend(vm, {
+            currentUser: null,
+            userRoles: USER_ROLES,
+            isAuthorized: authService.isAuthorized,
+            setCurrentUser: setCurrentUser
+        });
 
-        $scope.setCurrentUser = function (user) {
-            $scope.currentUser = user;
+
+        function setCurrentUser(user) {
+            vm.currentUser = user;
         };
 
-        if(session.isAuthorized){
-            $scope.setCurrentUser({
-                id:session.userId,
-                role:session.userRole,
-                displayName:session.displayName
+        if (session.isAuthorized) {
+            vm.setCurrentUser({
+                id: session.userId,
+                role: session.userRole,
+                displayName: session.displayName
             })
         }
     };
