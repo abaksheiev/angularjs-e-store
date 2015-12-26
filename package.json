@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Simple example of e-store: API",
   "main": "server.js",
-  "scripts": "node server.js",
+  
+  "scripts": {"start": "node server.js"},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abaksheiev/angularjs-e-store.git"
@@ -18,10 +19,11 @@
     "url": "https://github.com/abaksheiev/angularjs-e-store/issues"
   },
   "homepage": "https://github.com/abaksheiev/angularjs-e-store#readme",
-  "dependencies": {
+  "dependencies": { 
+  },
+  "devDependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "mongoose": "^4.3.1"
-  },
-  "devDependencies": {}
+    "express-session": "^1.12.1",
+    "mongoose": "^4.3.1"}
 }
