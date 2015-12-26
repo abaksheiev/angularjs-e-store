@@ -20,7 +20,10 @@
     "url": "https://github.com/abaksheiev/angularjs-e-store/issues"
   },
   "homepage": "https://github.com/abaksheiev/angularjs-e-store#readme",
-  "dependencies": {},
+  "dependencies": {
+    "karma-webpack": "^1.7.0",
+    "webpack": "^1.12.9"
+  },
   "devDependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
