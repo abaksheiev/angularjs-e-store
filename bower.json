@@ -21,12 +21,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "angular": "~1.4.8",
-    "angular-mocks": "~1.4.8",
-    "jasmine-core": "jasmine#~2.4.1",
-    "angular-route": "~1.4.8",
-    "bootstrap": "~3.3.6"
-  }
+  ]
 }
