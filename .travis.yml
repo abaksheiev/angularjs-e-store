@@ -1,5 +1,6 @@
 before_script:
   - npm install -g npm
+  - npm install -g karma-cli
   - npm install -g bower
   - bower install -f
 language: node_js
