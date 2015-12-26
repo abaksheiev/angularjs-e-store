@@ -65,6 +65,6 @@ app.use('/admin/#:route', express.static(__dirname + '/public/admin/index.html')
 
 // START THE SERVER
 // =============================================================================
-app.listen('8082', function () {
+app.listen('8080', function () {
     console.log('Magic happens on port 8080');
 });
