@@ -1,5 +1,5 @@
 # angularjs-example-karma
-Angualrjs,Unit tests: Karma.
+Angualrjs, Unit tests: Karma.
 
 <ul>
 <li>DEMO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://estore-abaksheiev.rhcloud.com/index.html</li>
