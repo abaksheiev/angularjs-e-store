@@ -37,11 +37,11 @@ describe('>>>CATEGORY COMPONENT: CATALOG CONTROLLER<<<', function() {
     it('should have a property called name equal "'+ controllerName +'"', function () {
         expect(categoryControllerInstance.name).toEqual(controllerName);
     });
-
+/*
     it('should be call getAll from on loadCategories', function(){
         categoryControllerInstance.loadCategories();
             spyOn(categoryServiceMock, 'getAll').andCallThrough();
 
-        });
+        });*/
 
 });
