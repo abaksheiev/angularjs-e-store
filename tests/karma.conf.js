@@ -78,6 +78,8 @@ module.exports = function(config) {
     // how many browser should be started simultanous
     concurrency: Infinity,
 
-    plugins: [require("karma-webpack")]
+    plugins: [
+      'karma-firefox-launcher',
+      'karma-jasmine']
   })
 }
